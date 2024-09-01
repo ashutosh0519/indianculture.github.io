@@ -1,23 +1,24 @@
-let ongoingResponseTimeout = null;
-
-function stopOngoingBotResponse() {
-    if (ongoingResponseTimeout) {
-        clearTimeout(ongoingResponseTimeout);
-        ongoingResponseTimeout = null;
-    }
-}
-
-
+let isBotResponding = false;
 // Function to send user message and generate bot response
 function sendMessage() {
     const userInput = document.getElementById('user-input').value.trim();
     if (userInput) {
+        stopBotSpeaking();
+        if(isBotresponding){
+            console.log('Bot response is interrupted by new user input');
+            isBotResponding = false;
+        }
         appendUserMessage(userInput);
         generateBotResponse(userInput);
         document.getElementById('user-input').value = '';
     }
 }
 
+function stopBotSpeaking(){
+    if(window.speechSynthesis.speaking){
+        window.speechSynthesis.cancel();
+    }
+}
 // Function to handle voice input
 function startVoiceRecognition() {
     if ('webkitSpeechRecognition' in window) {
@@ -61,7 +62,7 @@ function appendUserMessage(message) {
 // Function to generate bot response
 // Function to generate bot response using switch case
 function generateBotResponse(userInput) {
-    stopOngoingBotResponse();
+    isBotResponding = true;
     let botMessageText = '';
     const normalizedInput = userInput.toLowerCase().trim();
 
@@ -125,8 +126,10 @@ function generateBotResponse(userInput) {
     if (!botMessageText) {
         botMessageText = 'Sorry, I am not sure about that. Can you please ask something else related to Indian culture?';
     }
-
-    appendBotMessage(botMessageText);
+    if(isBotResponding){
+        appendBotMessage(botMessageText);
+        isBotResponding = false;
+    }
 }
 
     
