@@ -1,5 +1,4 @@
 let isBotResponding = false;
-// Function to send user message and generate bot response
 function sendMessage() {
     const userInput = document.getElementById('user-input').value.trim();
     if (userInput) {
@@ -19,8 +18,6 @@ function stopBotSpeaking(){
         window.speechSynthesis.cancel();
     }
 }
-
-// Function to handle voice input
 function startVoiceRecognition() {
     stopBotSpeaking();
     if ('webkitSpeechRecognition' in window) {
@@ -34,7 +31,7 @@ function startVoiceRecognition() {
         recognition.onresult = function(event) {
             const userVoiceInput = event.results[0][0].transcript;
             document.getElementById('user-input').value = userVoiceInput;
-            sendMessage(); // Automatically send the recognized text
+            sendMessage(); 
         };
 
         recognition.onerror = function(event) {
@@ -49,7 +46,6 @@ function startVoiceRecognition() {
     }
 }
 
-// Function to append user message to the chat
 function appendUserMessage(message) {
     const chatBody = document.querySelector('.chatbot-body');
     const userMessage = document.createElement('div');
@@ -61,14 +57,10 @@ function appendUserMessage(message) {
     scrollToBottom();
 }
 
-// Function to generate bot response
-// Function to generate bot response using switch case
 function generateBotResponse(userInput) {
     isBotResponding = true;
     let botMessageText = '';
     const normalizedInput = userInput.toLowerCase().trim();
-
-    // Mapping of responses based on keywords or phrases
     const responses = {
         'tell me about diwali': 'Diwali, also known as the Festival of Lights, is one of the most popular Hindu festivals celebrated with great enthusiasm in India.',
         'holi': 'Holi is a vibrant festival of colors celebrated in India, marking the arrival of spring and the victory of good over evil.',
@@ -85,45 +77,33 @@ function generateBotResponse(userInput) {
         'who build you' : 'To build me! , I have Amit Kumar Sahu,Sanskar kesharwani,Tarang koshti,Sneha , uday jhariya and ashutosh tiwari.',
         'hello': 'Hello How can I help?',
         'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
-        'distance between jammu and kerala' : 'The distance between jammu and kerala is 3,284 kilo metres',
         'sari' : 'The sari is a traditional garment worn by women in India. It is a long piece of cloth, usually about 6 to 9 yards in length, draped elegantly around the body. The sari is not just a piece of clothing but a symbol of grace, beauty, and cultural heritage. Different regions in India have their own unique styles of draping a sari, reflecting the diversity of Indian culture.',
         'namaste' : 'Namaste is a traditional Indian greeting, which means "I bow to you." The word is derived from Sanskrit and is often accompanied by a slight bow made with hands pressed together, palms touching and fingers pointing upwards, thumbs close to the chest. It signifies respect, reverence, and acknowledgment of the divine in others.',
         'capital of bhopal' : 'The Capital of madhya pradesh is bhopal',
         'capital of india' : 'The capital of India is New Delhi',
+        'capital of uttar pradesh': 'The capital of uttar pradesh is lucknow',
+        'capital of bihar':'the capital of bihar is patna',
+        'capital of rajasthan':'the capital of rajasthan is jaipur',
+        'capital of andhra pradesh':'the capital of Andhra pradesh is Amravati',
+        'capital of nagaland':'capital of nagaland is kohima',
+        'capital of assam':'capital of assam is dispur',
+        'capital of maharashtra':'capital of maharashtra is mumbai',
+        'capital of telangana':'capital of telangana is hyderabad',
+        'capital of karnataka':'capital of karnataka is bengaluru',
+        'capital of arunachal pradesh':'capital of arunachal pradesh is itanagar',
+        'capital of sikkim':'capital of sikkim is gangtok',
+        'capital of gujarat':'capital of gujarat is gandhinagar',
+        'capital of tamil nadu':'capital of tamil nadu is chennai',
+        'capital of odisha':'capital of odisha is bhubneswar',
+        'capital of goa':'capital of goa is panaji',
 
     };
-    // Check for each response keyword
     for (const keyword in responses) {
         if (normalizedInput.includes(keyword)) {
             botMessageText = responses[keyword];
             break;
         }
     }
-
-    // Default response if no keyword matches
     if (!botMessageText) {
         botMessageText = 'Sorry, I am not sure about that. Can you please ask something else related to Indian culture?';
     }
@@ -132,36 +112,35 @@ function generateBotResponse(userInput) {
         isBotResponding = false;
     }
 
-    // appendBotMessage(botMessageText);
 }
 
     
 
 
-// Function to append bot response to the chat
+
 function appendBotMessage(message) {
     const chatBody = document.querySelector('.chatbot-body');
     const botMessage = document.createElement('div');
     botMessage.className = 'chat-message bot-message';
     botMessage.textContent = message;
     chatBody.appendChild(botMessage);
-    speak(message); // Speak the bot's response
+    speak(message); 
     scrollToBottom();
 }
 
-// Function to handle suggestion clicks
+
 function handleSuggestionClick(suggestion) {
     document.getElementById('user-input').value = suggestion;
     sendMessage();
 }
 
-// Function to make the bot speak
+
 function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     window.speechSynthesis.speak(utterance);
 }
 
-// Function to scroll the chat to the bottom
+
 function scrollToBottom() {
     const chatBody = document.querySelector('.chatbot-body');
     chatBody.scrollTop = chatBody.scrollHeight;
