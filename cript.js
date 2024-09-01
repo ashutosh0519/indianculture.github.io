@@ -4,7 +4,7 @@ function sendMessage() {
     const userInput = document.getElementById('user-input').value.trim();
     if (userInput) {
         stopBotSpeaking();
-        if(isBotresponding){
+        if(isBotResponding){
             console.log('Bot response is interrupted by new user input');
             isBotResponding = false;
         }
@@ -19,8 +19,10 @@ function stopBotSpeaking(){
         window.speechSynthesis.cancel();
     }
 }
+
 // Function to handle voice input
 function startVoiceRecognition() {
+    stopBotSpeaking();
     if ('webkitSpeechRecognition' in window) {
         const recognition = new webkitSpeechRecognition();
         recognition.lang = 'en-US';
@@ -113,7 +115,6 @@ function generateBotResponse(userInput) {
         'capital of india' : 'The capital of India is New Delhi',
 
     };
-
     // Check for each response keyword
     for (const keyword in responses) {
         if (normalizedInput.includes(keyword)) {
@@ -130,6 +131,8 @@ function generateBotResponse(userInput) {
         appendBotMessage(botMessageText);
         isBotResponding = false;
     }
+
+    // appendBotMessage(botMessageText);
 }
 
     
