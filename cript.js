@@ -1,3 +1,13 @@
+let ongoingResponseTimeout = null;
+
+function stopOngoingBotResponse() {
+    if (ongoingResponseTimeout) {
+        clearTimeout(ongoingResponseTimeout);
+        ongoingResponseTimeout = null;
+    }
+}
+
+
 // Function to send user message and generate bot response
 function sendMessage() {
     const userInput = document.getElementById('user-input').value.trim();
@@ -51,6 +61,7 @@ function appendUserMessage(message) {
 // Function to generate bot response
 // Function to generate bot response using switch case
 function generateBotResponse(userInput) {
+    stopOngoingBotResponse();
     let botMessageText = '';
     const normalizedInput = userInput.toLowerCase().trim();
 
