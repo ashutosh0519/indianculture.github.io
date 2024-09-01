@@ -96,6 +96,14 @@ function generateBotResponse(userInput) {
         'capital of tamil nadu':'capital of tamil nadu is chennai',
         'capital of odisha':'capital of odisha is bhubneswar',
         'capital of goa':'capital of goa is panaji',
+        'capital of kerala':'capital of kerala is trivuananthapuram',
+        'capital of west bengal':'capital of west bengal is kolkata',
+        'capital of jharkhand':'capital of jharkhand is ranchi',
+        'capital of chattisgarh':'capital of chattisgarh is raipur',
+        'capital of tripura ':'capital of tripura is agartala',
+        'capital of mizoram':'capital of mizoram is aizwal',
+        'capital of uttarakhand':'capital of uttarakhand is dehradun',
+        'capital of himachal pradesh':'capital of himachal pradesh is shimla',
 
     };
     for (const keyword in responses) {
