@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#heading{
+    font-size: medium;
+    font-weight:normal;
+
+}
+.chatbot-container {
+    width: 300px; 
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-right: 30px;
+    
+}
+.chatbot-header {
+    background: linear-gradient(135deg, #007bff, #00bcd4);
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font: weight 100px;;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 5px; 
+}
+.header-icon {
+    width: 50px;
+    height: 60px; 
+    border-radius: 50%;
+}
+
+.chatbot-body {
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    background-color: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.chatbot-footer {
+    display: flex;
+    padding: 10px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.chatbot-footer input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.chatbot-footer input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+.chatbot-footer button {
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #d38525;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.chatbot-footer button:hover {
+    background-color: #b86420;
+}
+.chatbot-footer button svg {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}
+.chat-message {
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message {
+    background-color: #007bff;
+    color: #ffffff;
+    align-self: flex-start;
+    border-radius: 10px;
+}
+
+.user-message {
+    background-color: #e0f7fa;
+    color: #333333;
+    align-self: flex-end;
+}
+
+
+.bot-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.suggestion-button {
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #007bff;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-button:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+
+
+
+
+.chatbot-footer .voice-button {
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #25D366; /* WhatsApp green */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px; /* Spacing between voice and send buttons */
+    transition: all 0.3s ease;
+}
+
+.chatbot-footer .voice-button:hover {
+    background-color: #20b858; /* Darker shade on hover */
+}
+
+.chatbot-footer .voice-button svg {
+    fill: white;
+    width: 24px;
+    height: 24px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Culture Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <img src="bot.png" alt="Chatbot Icon" class="header-icon">
+            <h2 id="heading">INDIAN CULTURE CHATBOT</h2>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="bot-message">Hello! I am your Indian Culture guide. Ask me anything!</div>
+        </div>
+        <div class="chatbot-footer">
+            
+            <input type="text" id="user-input" placeholder="Type your question here..." />
+            
+            
+            <button onclick="startVoiceRecognition()" class="voice-button">    <!-- voice button-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="white" d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3zm6-3a6.002 6.002 0 01-5 5.917V21a1 1 0 11-2 0v-3.083A6.002 6.002 0 016 12a1 1 0 112 0 4 4 0 108 0 1 1 0 112 0z" />
+                </svg>
+            </button>
+
+
+            <button onclick="sendMessage()" class="send-button">     <!-- send button -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="white" d="M1.5 12L23 1.5 16.5 24l-5.25-7.5L1.5 12zm6.75-1.5l4.5 4.5-2.25 6.75L21 4.5 8.25 10.5z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="cript.js"></script> <!-- Ensure this points to the correct JS file -->
+</body>
+</html>
