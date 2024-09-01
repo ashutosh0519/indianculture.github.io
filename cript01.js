@@ -148,13 +148,6 @@ function appendBotMessage(message) {
     speak(message); // Speak the bot's response
     scrollToBottom();
 }
-
-// Function to handle suggestion clicks
-function handleSuggestionClick(suggestion) {
-    document.getElementById('user-input').value = suggestion;
-    sendMessage();
-}
-
 // Function to make the bot speak
 function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
